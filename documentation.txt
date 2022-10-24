@@ -1,0 +1,31 @@
+Description:
+The tokenizer I have implemented follows the structure of the DFA I implemented, in that there are 4 different options for what a token could be: reserved word, unsigned integer, identifier, or special symbol. 
+A token could also be a whitespace, which we skip through. 
+The tokenizer reads in an text file as input, and will go through each character and determine if the character is valid as well as determine what "category" (the options I stated above) the token could be.
+Based on the category, it will tokenize the entire token and move through the program.
+The way that I did this is by reading through the file line by line. 
+I tokenize each line into an output buffer with each token as an element. 
+I then loop through that output buffer and convert the token to an integer that represents the token based on a mapping I have set in my program.
+
+User manual:
+In order to compile and execute the program, you must navigate to the directory of the program.
+Then, type "python tokenizer.py xx" where python can be "python" or "python3", depending on your version, and xx is the input file. 
+For me, the input files are all stored as plaintext files in the data folder. 
+So, for example, if I wanted to execute the program with "prog1_correct.txt", I would type into the terminal: "python3 tokenizer.py data/prog1_correct.txt"
+
+Description of Testing:
+To test my program, I first started with the "prog1_correct.txt" file because it was the simplest and shortest.
+Instead of reading in the file through the command line, hard-coded it into the main() function. 
+Then, I was able to set breakpoints and go through my code line by line.
+Since I used VSCode, there was built-in "Run and Debug" functionality where I could see the values of variables at any given point of execution.
+This was extremely helpful as I read through each individual part of my program and followed how the variables were being built, reset, restored, etc.
+When I found an error or bug in the code, I was able to step through and into functions to see where the error was and fix it from there. 
+In the future, I would like to implement some sort of unit testing to compare the expected and actual outputs. 
+I'm unfamiliar with unit testing in python but I think it would be really useful, especially given that I already have files that show what the output should be for the sample input programs. 
+
+Known remaining bugs and missing features:
+- fix up intVal and idName: maybe incorporate a boolean to indicate that something isIdentifier, for example
+- deal with what happens when there is no "\n" at the end of the line. Currently, I deal with this by always appending "\n" to the end of the line.
+- deal with lines that are completely blank. I started to deal with this but due to time constraints could not complete.
+- int val identifier
+- take into account if the buffer output is empty that means that there was a completely blank line so we need to figure out how to handle that (check output buffer?????????)
